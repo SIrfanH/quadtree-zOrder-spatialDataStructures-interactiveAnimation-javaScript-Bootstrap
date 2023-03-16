@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>PM1 Quadtree</title>
+    <title>MX Quadtree</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>MX Quadtree</title>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-        <a class='navbar-brand' href="./index.html">Spacial Data Structures</a>
+        <a class='navbar-brand' href="../index.html">Spacial Data Structures</a>
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="./MXQuadtree.html">MX Quadtree</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="./PM1Quadtree.html">PM1 Quadtree</a>
             </li>
             <li class="nav-item">
@@ -32,7 +35,7 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col">
-                    <h5>PM1 Quadtree</h5>
+                    <h5>MX Quadtree</h5>
                 </div>
                 <div class="col">
                     <h5>How To Use</h5>
@@ -41,10 +44,9 @@
             <hr class="my-4-auto">
             <div class="row">
                 <div class="col">
-                    <p>1. Used for Storing Lines and Polygon edges. Vertex Based version of the PM Quadtree Family.</p>
-                    <p>2. Leaf nodes can contain at most one vertex.</p>
-                    <p>3. If a leaf node contains a vertex then it can only contain q-edges that include that vertex.</p>
-                    <p>4. At most one edge can pass from a block that does not contain a vertex.</p>
+                    <p>1. Used for Storing Lines and Polygon edges.</p>
+                    <p>2. In every insert decomposition happens until the order level is reached.</p>
+                    <p>3. The lines are added to every quandrants that they pass.</p>
                 </div>
                 <div class="col">
                     <p>1. Insert lines by drawing with your mouse on the canvas or select saved lines.</p>
@@ -86,6 +88,20 @@
             </div>
         </div>
         <div class="row justify-content-center">
+            <div class="col-auto">
+                <div class="row">
+                    <output>Select Tree Order</output>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <input type="range" min="1" max="10" value="3" class="slider" id="quadTreeDepthSlider"
+                            oninput="document.getElementById('order').value = Math.pow( 2,this.value)">
+                    </div>
+                    <div class="col-auto">
+                        <output id="order">8</output>
+                    </div>
+                </div>
+            </div>
             <div class="col-auto ml-5">
                 <div class="row">
                     <output>Animation Delay</output>
@@ -117,9 +133,10 @@
         </div>
     </div>
     <br>
-    <script type="text/javascript" src="source/PM1Quadtree.js"></script>
-    <script src="js/jquery-3.2.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../source/MXQuadtree.js"></script>
+    <script src="../js/jquery-3.2.1.slim.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </body>
+
 </html>
