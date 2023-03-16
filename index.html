@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <a class='navbar-brand active' href="./index.html">Spacial Data Structures</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="./MXQuadtree.html">MX Quadtree</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./PM1Quadtree.html">PM1 Quadtree</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./PM2Quadtree.html">PM2 Quadtree</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./PMRQuadtree.html">PMR Quadtree</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./zOrderCurve.html">Z-Order Curve</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="jumbotron">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <h5>MX Quadtree</h5>
+                </div>
+                <div class="col">
+                    <h5>How To Use</h5>
+                </div>
+            </div>
+            <hr class="my-4-auto">
+            <div class="row">
+                <div class="col">
+                    <p>1. Used for Storing Lines and Polygon edges. Vertex Based version of the PM Quadtree Family.</p>
+                    <p>2. In every insert decomposition happens until the order level is reached.</p>
+                    <p>3. The lines are added to every quandrants that they pass.</p>
+                </div>
+                <div class="col">
+                    <p>1. Insert lines by drawing with your mouse on the canvas or select saved lines.</p>
+                    <p>2. Select Window Seach then draw a rectangle and click animate.</p>
+                    <p>3. Select KNN Search then select K from the slider then click anywhere on canvas to find K-Nearest Neighbor.</p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <h5>PM1 Quadtree</h5>
+                </div>
+                <div class="col">
+                    <h5>How To Use</h5>
+                </div>
+            </div>
+            <hr class="my-4-auto">
+            <div class="row">
+                <div class="col">
+                    <p>1. Used for Storing Lines and Polygon edges. Vertex Based version of the PM Quadtree Family.</p>
+                    <p>2. Leaf nodes can contain at most one vertex.</p>
+                    <p>3. If a leaf node contains a vertex then it can only contain q-edges that include that vertex.</p>
+                    <p>4. At most one edge can pass from a block that does not contain a vertex.</p>
+                </div>
+                <div class="col">
+                    <p>1. Insert lines by drawing with your mouse on the canvas or select saved lines.</p>
+                    <p>2. Select Window Seach then draw a rectangle and click animate.</p>
+                    <p>3. Select KNN Search then select K from the slider then click anywhere on canvas to find K-Nearest Neighbor.</p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <h5>PM2 Quadtree</h5>
+                </div>
+                <div class="col">
+                    <h5>How To Use</h5>
+                </div>
+            </div>
+            <hr class="my-4-auto">
+            <div class="row">
+                <div class="col">
+                    <p>1. Used for Storing Lines and Polygon edges. Vertex Based version of the PM Quadtree Family.</p>
+                    <p>2. Leaf nodes can contain at most one vertex.</p>
+                    <p>3. If a leaf node contains a vertex then it can only contain q-edges that include that vertex.</p>
+                    <p>4. If a leaf node does not contain a vertex then only q-edges that have a common vertex outside the block can pass through it.</p>
+                </div>
+                <div class="col">
+                    <p>1. Insert lines by drawing with your mouse on the canvas or select saved lines.</p>
+                    <p>2. Select Window Seach then draw a rectangle and click animate.</p>
+                    <p>3. Select KNN Search then select K from the slider then click anywhere on canvas to find K-Nearest Neighbor.</p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <h5>PMR Quadtree</h5>
+                </div>
+                <div class="col">
+                    <h5>How To Use</h5>
+                </div>
+            </div>
+            <hr class="my-4-auto">
+            <div class="row">
+                <div class="col">
+                    <p>1. Used for Storing Lines and Polygon edges. Edge base version of the PM Quadtree Family.</p>
+                    <p>2. Decomposition happens only once if maximum capacity of a block is exceeded.</p>
+                    <p>3. It is possible for a block to contain more edges than the specified capacity</p>
+                    <p>4. Different insertion sequences create different tree shape.</p>
+                </div>
+                <div class="col">
+                    <p>1. Insert lines by drawing with your mouse on the canvas or select saved lines</p>
+                    <p>2. Select Window Seach then draw a rectangle and click animate</p>
+                    <p>3. Select KNN Search then select K from the slider then click anywhere on canvas to find K-Nearest Neighbor.</p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <h5>Z-Order Curve</h5>
+                </div>
+                <div class="col">
+                    <h5>How To Use</h5>
+                </div>
+            </div>
+            <hr class="my-4-auto">
+            <div class="row">
+                <div class="col">
+                    <p>1. Space Filling Curves if infinitely drawn has the ability to fill the entire space.</p>
+                    <p>2. They visit every point in space exactly once and does not intersect itself.</p>
+                    <p>3. Z Order index (Morton Code) of a point is aquired by interleaving X and Y coordinates of it.</p>
+                </div>
+                <div class="col">
+                    <p>1. Select Curve order using the slider to see the curve filling the space.</p>
+                    <p>2. Draw a rectangle with your mouse on the canvas for Window Search.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>PMR Quadtree</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <a class='navbar-brand' href="./index.html">Spacial Data Structures</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="./MXQuadtree.html">MX Quadtree</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./PM1Quadtree.html">PM1 Quadtree</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./PM2Quadtree.html">PM2 Quadtree</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="./PMRQuadtree.html">PMR Quadtree</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./zOrderCurve.html">Z-Order Curve</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="jumbotron">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <h5>PMR Quadtree</h5>
+                </div>
+                <div class="col">
+                    <h5>How To Use</h5>
+                </div>
+            </div>
+            <hr class="my-4-auto">
+            <div class="row">
+                <div class="col">
+                    <p>1. Used for Storing Lines and Polygon edges. Edge base version of the PM Quadtree Family.</p>
+                    <p>2. Decomposition happens only once if maximum capacity of a block is exceeded.</p>
+                    <p>3. It is possible for a block to contain more edges than the specified capacity</p>
+                    <p>4. Different insertion sequences create different tree shape.</p>
+                </div>
+                <div class="col">
+                    <p>1. Insert lines by drawing with your mouse on the canvas or select saved lines</p>
+                    <p>2. Select Window Seach then draw a rectangle and click animate</p>
+                    <p>3. Select KNN Search then select K from the slider then click anywhere on canvas to find K-Nearest Neighbor.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='container-fluid'>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <button type="button" class="btn btn-outline-primary btn-sm" id="addLineBTN">Add Line</button>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="windowSearchBTN">Window Search</button>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="animateBTN">Animate</button>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="nearestNeighborSearchBTN">KNN
+                    Search</button>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="clearBTN">Clear</button>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="savedBTN">Saved</button>
+            </div>
+            <div class="col-2">
+                <p id='text'>Coordinates</p>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-2">
+            <div class="col-auto">
+                <canvas class="border border-primary rounded" id="canvas" width="500" height="500"></canvas>
+                <canvas class="border border-secondary rounded" id="canvas2" width="650" height="500"></canvas>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <div class="row">
+                    <output>Block Capacity</output>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <input type="range" min="1" max="10" value="2" class="slider" id="quadTreeCapacitySlider"
+                            oninput="document.getElementById('order').value = this.value">
+                    </div>
+                    <div class="col-auto">
+                        <output id="order">2</output>
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto ml-5">
+                <div class="row">
+                    <output>Animation Delay</output>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="range" min="1" max="1000" value="100" class="slider" id="animationDelaySlider"
+                            oninput="document.getElementById('delay').value = this.value">
+                    </div>
+                    <div class="col">
+                        <output id='delay'>100</output>
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto ml-5">
+                <div class="row">
+                    <output>K - Nearest Neighbor</output>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="range" min='0' max='0' value='0' class="slider" id="kNearestNeighborSlider"
+                            oninput="document.getElementById('near').value = this.value">
+                    </div>
+                    <div class="col">
+                        <output id="near">0</output>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <script type="text/javascript" src="source/PMRQuadtree.js"></script>
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="packages/dist/d3.min.js"></script>
+    <title>Z-Order Curve</title>
+    <style>
+        svg {
+            margin: 10px;
+        }
+
+        svg path {
+            fill: none;
+            stroke: #3A5894;
+            stroke-width: 1.5;
+            stroke-linecap: square;
+        }
+
+        svg path.skeleton {
+            stroke: rgb(2, 19, 6);
+            stroke-width: 0.1;
+        }
+
+        svg path.search{
+            stroke: rgb(236, 9, 27);
+            stroke-width: 1;
+        }
+
+        #val-tooltip {
+            display: none;
+            position: absolute;
+            margin-top: -15px;
+            margin-left: -1px;  
+            padding: 5px;
+            border-radius: 3px;
+            font: 11px sans-serif;
+            color: #eee;
+            background: rgba(0,0,140,0.9);
+            text-align: center;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <a class='navbar-brand' href="./index.html">Spacial Data Structures</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="./MXQuadtree.html">MX Quadtree</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./PM1Quadtree.html">PM1 Quadtree</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./PM2Quadtree.html">PM2 Quadtree</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./PMRQuadtree.html">PMR Quadtree</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="./zOrderCurve.html">Z-Order Curve</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="jumbotron">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <h5>Z-Order Curve</h5>
+                </div>
+                <div class="col">
+                    <h5>How To Use</h5>
+                </div>
+            </div>
+            <hr class="my-4-auto">
+            <div class="row">
+                <div class="col">
+                    <p>1. Space Filling Curves if infinitely drawn has the ability to fill the entire space.</p>
+                    <p>2. They visit every point in space exactly once and does not intersect itself.</p>
+                    <p>3. Z Order index (Morton Code) of a point is aquired by interleaving X and Y coordinates of it.</p>
+                </div>
+                <div class="col">
+                    <p>1. Select Curve order using the slider to see the curve filling the space.</p>
+                    <p>2. Draw a rectangle with your mouse on the canvas for Window Search.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='container-fluid'>
+        <div class="row justify-content-center mb-2">
+            <div class="col-auto">
+                <svg id = 'MortonCurve'></svg>
+                <div id="val-tooltip"></div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <div class="row">
+                    <output>Curve Order</output>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <input type="range" min="1" max="10" value="2" class="slider" id="mortonCurveOrderSlider"
+                            oninput="document.getElementById('order').value = this.value">
+                    </div>
+                    <div class="col-auto">
+                        <output id="order">2</output>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <script type="text/javascript" src="source/zOrder.js"></script>
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
